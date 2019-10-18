@@ -27,3 +27,27 @@ it('map([1, 2], (item, index, array) => array ) should return [[1, 2], [1, 2]]',
         [1, 2]
     ]);
 })
+
+it('map(1) should throw a TypeError', () => {
+    let error
+
+    try {
+        map(1)
+    } catch (e) {
+        error = e
+    }
+
+    expect(error.message).to.be.equal('First parameter Type Error')
+})
+
+it('map([1, 2], "string") should throw a TypeError', () => {
+    let error
+
+    try {
+        map([1, 2], "string")
+    } catch (e) {
+        error = e
+    }
+
+    expect(error.message).to.be.equal('Second parameter Type Error')
+})

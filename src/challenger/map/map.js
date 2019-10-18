@@ -1,3 +1,5 @@
+import { type } from "os"
+
 /* const map = ( arr, func ) => {
     let newArr = []
     for (let i = 0; i < arr.length; i++ ) {
@@ -7,17 +9,6 @@
 }
 
 export default map */
-
-/* const map = ( arr, func ) => {
-
-    let newArr = []
-    const [head, ...tail] = arr
-
-    map(tail, )
-
-    return map()
-
-} */
 /* 
 const map = (arr = [], func = (item) => item) => {
     let counter = 0
@@ -36,6 +27,14 @@ const map = (arr = [], func = (item) => item) => {
 export default map */
 
 const map = (arr = [], func = (item) => item) => {
+    if (!Array.isArray(arr)) {
+        throw new TypeError('First parameter Type Error')
+    }
+
+    if (typeof func !== 'function') {
+        throw new TypeError('Second parameter Type Error')
+    }
+
     return (function mapInternal(arrayInternal, counter) {
         const [head, ...tail] = arrayInternal
 
